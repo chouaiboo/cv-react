@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import ChouaibAnimation from "./compenent/animation";
+import Home from './compenent/containares/home/Home';
+import About from "./compenent/containares/Apropos/About";
+import Portfolio from "./compenent/containares/Portflio/Portfolio";
+import Contact from "./compenent/containares/Contact/Contact";
+import { BrowserRouter as Router } from "react-router-dom";
+import Navbar from "./compenent/navbar/Navbar";
 
 function App() {
+  const [showLandingPage, setShowLandingPage] = useState(false);
+
+  const handleAnimationComplete = () => {
+    setShowLandingPage(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        {!showLandingPage ? (
+          <ChouaibAnimation onAnimationComplete={handleAnimationComplete} />
+        ) : (
+          <>
+            <Navbar />
+            <main>
+              <section id="home"><Home /></section>
+              <section id="about"><About /></section>
+              <section id="portfolio"><Portfolio /></section>
+              <section id="contact"><Contact /></section>
+            </main>
+          </>
+        )}
+      </div>
+    </Router>
   );
 }
 

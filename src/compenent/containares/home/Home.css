@@ -1,0 +1,244 @@
+#home {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  color: white;
+  text-align: center;
+  margin-left: 320px;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 5px;
+  position: absolute;
+  bottom: 190px;
+  left: 100px;
+  right: 0;
+}
+
+.pagination li {
+  margin: 0 10px;
+}
+
+.pagination li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.pagination li.active a {
+  background-color: #ffff00;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+  color: #000;
+}
+
+.pagination li a:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.1);
+}
+
+.pagination li.previous a,
+.pagination li.next a {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  color: white;
+  font-size: 24px;
+  padding: 0 10px;
+  display: inline-block;
+}
+
+.pagination li.previous a:hover,
+.pagination li.next a:hover {
+  color: #ffff00;
+  transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.image-container {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.project-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+  margin-bottom: 90px;
+  position: relative;
+  z-index: 1;
+}
+
+.project-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button.secondary {
+  background-color: #007bff;
+  margin-left: 20px;
+}
+
+.cta-button.secondary:hover {
+  background-color: #218838;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    margin-left: 0;
+    padding-top: 100px;
+  }
+
+  .image-container {
+    position: static;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .project-image {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 1rem;
+  }
+
+  .pagination {
+    position: static;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #home {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .content {
+    padding-top: 50px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .project-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 8px 16px;
+    display: block;
+    margin: 10px auto;
+  }
+
+  .cta-button.secondary {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+  }
+
+  .pagination li {
+    margin: 5px;
+  }
+}
